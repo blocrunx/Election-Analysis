@@ -92,7 +92,7 @@ with open(file_to_load) as election_data:
         #Save the final vote count to the text file
         txt_file.write(election_results)
 
-        #iterate through the candidate list
+        #iterate through the candidate dictionary
         for candidate in candidate_votes:
 
             #retrieve the vote count for each candidate
@@ -135,10 +135,25 @@ with open(file_to_load) as election_data:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"--------------------------\n")
         
+        winning_count = 0
+        winning_percentage = 0
+        
+        # Iterate through county_votes_dict
+        for county in county_votes_dict:
 
-        #print(winning_candidate_summary)
+            votes = county_votes_dict[county]
+
+            vote_percentage = int(votes)/int(total_votes)*100
+
+            #assign county results to a variable
+            county_results = (f"{county}: {vote_percentage: .1f}% ({votes:,})\n")
+            
+            # sanity check success, woot woot
+            print(county_results)
+            #print(winning_candidate_summary)
+            txt_file.write(county_results)
     
         # Save the winning candidate's name to the text file.
         txt_file.write(winning_candidate_summary)
-
+        
    
