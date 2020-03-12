@@ -23,6 +23,15 @@ candidate_options = []
 # Create dictionary to hold candidate votes
 candidate_votes = {}
 
+# Challenge 2. Create a list for the counties
+counties = []
+
+# Challenge 3. Create a Dictionary
+county_votes_dict = {}
+
+# Challenge 4. Create a string to hold county name with largest turnout
+winning_county = ""
+
 # Winning candidate and winning count tracker
 winning_candidate = ""
 winning_count = 0
@@ -44,16 +53,33 @@ with open(file_to_load) as election_data:
         # print the canidate name from each row
         candidate_name = row[2]
 
-        #check if name already exists in the list
+        # Check if name already exists in the list
         if candidate_name not in candidate_options:
             #add the candidate name ot the candidate list.
             candidate_options.append(candidate_name)
             
-            # set candidate votes to zeor for new candidate
+            # Set candidate votes to zeor for new candidate
             candidate_votes[candidate_name] = 0
 
         candidate_votes[candidate_name] +=1
-        
+
+        # Challenge 5. Declare a variable to record number of votes a county received
+
+        #Declare variable to add county name
+        county_name = row[1]
+
+        #Add county names to the the list
+        if county_name not in counties:
+
+            #add county name to the list of counties
+            counties.append(county_name)
+
+            #set county votes to 0 for new County
+            county_votes_dict[county_name] = 0
+
+        #incriment county's number of votes with each loop where it appears    
+        county_votes_dict[county_name] += 1
+
     #save results to a text file
     with open(file_to_save, 'w') as txt_file:
         #Print the final vote count to the terminal.
@@ -83,6 +109,8 @@ with open(file_to_load) as election_data:
 
             #print candidate_results to txt_file
             txt_file.write(candidate_results)
+         
+
 
             #  To do: print out each candidate's name, vote count, and percentage of
             # votes to the terminal.
@@ -106,6 +134,7 @@ with open(file_to_load) as election_data:
         f"Winning Vote Count: {winning_count:,}\n"
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"--------------------------\n")
+        
 
         #print(winning_candidate_summary)
     
