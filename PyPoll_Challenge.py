@@ -1,9 +1,4 @@
-#The data we need to retreive
-#total number of votes cast
-#complete list of candidates who received votes
-#total number of votes each candidate received
-#percentage of votes each candidate won
-#winner of the election based on popular vote
+# Colorado election .csv analysis using Python
 
 import csv
 import os
