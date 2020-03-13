@@ -11,7 +11,7 @@ A Colorado Board of Elections employee has given you the following task to compl
 
 ## Resources
 -Data Source: election_results.csv
--Software: Python 3.6.1, Visual Studio Code, 1.38.1
+-Software: Python 3.7.6, Visual Studio Code, 1.43.0
 
 ## Summary
 The analysis of the election show that:
@@ -36,6 +36,9 @@ We know that not everyone has voted in this election, and the election commissio
 4. Calculate the percentage of the total vote each country received.
 5. Determine which country received the highest voter turnout.
 
+## Resources
+-Data Source: election_results.csv
+-Software: Python 3.7.6, Visual Studio Code, 1.43.0
 
 ## Challenge Summary
 Further analysis of the data reveals more information about the counties and their voting statistics:
