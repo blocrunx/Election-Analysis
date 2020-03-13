@@ -42,8 +42,8 @@ We know that not everyone has voted in this election, and the election commissio
 
 ## Challenge Summary
 Further analysis of the data reveals more information about the counties and their voting statistics:
-- Three counties were included in this election
--The counties were:
+- Three counties were included in this election.
+- The counties were:
   - Jefferson County
   - Denver County
   - Arapahoe
