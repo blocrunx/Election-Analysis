@@ -97,6 +97,7 @@ with open(file_to_load) as election_data:
         # Create header for county section
         county_header = (f"County Votes:\n")
         txt_file.write(county_header)
+        print(county_header)
     
         # Challenge 6. 
         # Iterate through county_votes_dict
@@ -133,8 +134,8 @@ with open(file_to_load) as election_data:
         txt_file.write(winning_county_summary)
 
         # Print winning county to terminal
-        print(f"Winning County: {winning_county}\n")
-        
+        print(winning_county_summary)
+               
         # Reset variables for use with individual candidates
         winning_count = 0
         winning_percentage = 0
@@ -175,7 +176,7 @@ with open(file_to_load) as election_data:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"--------------------------\n")
        
-       
+        print(winning_candidate_summary)
         # Save the winning candidate's name to the text file.
         txt_file.write(winning_candidate_summary)
 
