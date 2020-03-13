@@ -8,13 +8,13 @@
 import csv
 import os
 
-# Assign a variable to load a file from a path.
+# Assign a variable to load a file from a path
 file_to_load = os.path.join("Resources/election_results.csv")
 
-# Assign a variable to saev the file to a path.
+# Assign a variable to saev the file to a path
 file_to_save = os.path.join('analysis', 'election_results.txt')
 
-#initialize a total vote counter.
+# Initialize a total vote counter
 total_votes = 0
 
 # Candidate Options
@@ -40,7 +40,7 @@ winning_percentage = 0
 # Open the election results and read the file
 with open(file_to_load) as election_data:
 
-    #to-do read the file object with the reader function.
+    # Read the file object with the reader function
     file_reader = csv.reader(election_data)
 
     # Read the header row
@@ -50,32 +50,33 @@ with open(file_to_load) as election_data:
     for row in file_reader:
         total_votes += 1
 
-        # print the canidate name from each row
+        # Print the canidate name from each row
         candidate_name = row[2]
 
         # Check if name already exists in the list
         if candidate_name not in candidate_options:
             
-            #add the candidate name ot the candidate list.
+            # Add the candidate name ot the candidate list
             candidate_options.append(candidate_name)
             
             # Set candidate votes to zero for new candidate
             candidate_votes[candidate_name] = 0
 
+        # Add a vote corresponding to the candidate's name in the dictionary
         candidate_votes[candidate_name] +=1
 
         # Challenge 5. Declare a variable to record number of votes a county received
 
-        #Declare variable to add county name
+        # Declare variable to add county name
         county_name = row[1]
 
-        #Add county names to the list
+        # Add county names to the list
         if county_name not in counties:
 
             # Add county name to the list of counties
             counties.append(county_name)
 
-            # Set county votes to 0 for new County
+            # Set county votes to 0 for new county
             county_votes_dict[county_name] = 0
 
         # Incriment county's number of votes with each loop where it appears    
@@ -84,14 +85,15 @@ with open(file_to_load) as election_data:
     # Save results to a text file
     with open(file_to_save, 'w') as txt_file:
         
-        #Print the final vote count to the terminal.
+        # Print the final vote count to the terminal
         election_results = (
             f"\nElection Results\n"
             f"-------------------------\n"
             f"Total Votes: {total_votes:,}\n"
             f"--------------------------\n\n")
         print(election_results, end="")
-        #Save the final vote count to the text file
+
+        # Save the final vote count to the text file
         txt_file.write(election_results)
         
         # Create header for county section
@@ -106,7 +108,7 @@ with open(file_to_load) as election_data:
             # Assign votes county dictionary value
             votes = county_votes_dict[county]
 
-            #Calculate percentage of vote
+            # Calculate percentage of vote
             vote_percentage = int(votes)/int(total_votes)*100
 
             # Assign county results to a variable
@@ -115,7 +117,7 @@ with open(file_to_load) as election_data:
             # Print results to terminal
             print(county_results)
 
-            #print(winning_candidate_summary)
+            # Write county % and votes to text file
             txt_file.write(county_results)
 
             # Find winning County Turnout
@@ -130,7 +132,7 @@ with open(file_to_load) as election_data:
         f"-------------------------\n"
         )
 
-        # Write winning county to 
+        # Write winning county to text file 
         txt_file.write(winning_county_summary)
 
         # Print winning county to terminal
@@ -144,31 +146,32 @@ with open(file_to_load) as election_data:
         # Iterate through the candidate dictionary
         for candidate in candidate_votes:
 
-            #retrieve the vote count for each candidate
+            # Retrieve the vote count for each candidate
             votes = candidate_votes[candidate]
 
-            #Calculate vote percentage
+            # Calculate vote percentage
             vote_percentage = int(votes)/int(total_votes)*100
             
-            #assign candidate results to a variable 
+            # Assign candidate results to a variable 
             candidate_results = (f"{candidate}: {vote_percentage: .1f}% ({votes:,})\n")
 
-            #print candidate results to terminal
+            # Print candidate results to terminal
             print(candidate_results)
 
-            #print candidate_results to txt_file
+            # Write candidate_results to txt_file
             txt_file.write(candidate_results)
             
             # Determine winning vote count and candidate
             if (votes > winning_count) and (vote_percentage > winning_percentage):
                 # If true then set winning_count = votes and winning_percent =
-                # vote_percentage.
+                # vote_percentage
                 winning_count = votes
                 winning_percentage = vote_percentage
-                # And, set the winning_candidate equal to the candidate's name.
+                # And, set the winning_candidate equal to the candidate's name
                 winning_candidate = candidate
             
-        
+        # Assign the winning candidate, their vote count and percentage to variable with 
+        # following format:
         winning_candidate_summary = (
         f"--------------------------\n"
         f"Winner: {winning_candidate}\n"
@@ -176,8 +179,8 @@ with open(file_to_load) as election_data:
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"--------------------------\n")
        
+        # Write and print the winning candidate's name, vote count and vote percentage
         print(winning_candidate_summary)
-        # Save the winning candidate's name to the text file.
         txt_file.write(winning_candidate_summary)
 
         
