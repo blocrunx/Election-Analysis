@@ -47,8 +47,8 @@ Further analysis of the data reveals more information about the counties and the
   - Denver County
   - Arapahoe County
 - The county results were:
-  - Jefferson County received 38,855 votes, which was 10.5% of the total vote.
-  - Denver County received 306,055 votes, which was 82.8% of the total vote.
-  - Arapahoe County received 24,801 votes, which was 6.7% of the total vote.
+  - Jefferson County received 10.5% of the total vote with 38,855 votes.
+  - Denver County received 82.8% of the total vote with 306,055 votes.
+  - Arapahoe County received 6.7% of the total vote with 24,801 votes.
 - The largest county turnout was:
-  - Denver County
+  - Denver County, which received 82.8% of the total vote with 306,055 votes.
