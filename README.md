@@ -45,7 +45,7 @@ Further analysis of the data reveals more information about the counties and the
 - Three counties were included in this election:
   - Jefferson County
   - Denver County
-  - Arapahoe
+  - Arapahoe County
 - The county results were:
   - Jefferson County received 38,855 votes which was 10.5% of the total vote.
   - Denver County received 306,055 votes which was 82.8% of the total vote.
